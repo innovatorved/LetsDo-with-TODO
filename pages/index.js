@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import SendMessage from '../components/SendMessage';
-
+import Messages from '../components/Messages';
 
 export default function Home() {
   return (
     <div>
       <Head>
-        <title>Contkt</title>
-        <meta name="description" content="Contkt App : Online Messaging Application" />
+        <title>ToDo</title>
+        <meta name="description" content="Let's Do : with ToDo" />
         <link rel="icon" href="/logonew.png" />
       </Head>
 
@@ -19,8 +19,9 @@ export default function Home() {
           height={200}
         />
 
-      <main>
+      <main className=''>
         <SendMessage/>
+        <Messages/>
       </main>
     </div>
   )

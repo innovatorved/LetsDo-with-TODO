@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Image from 'next/image';
 
+import { StateManager } from '../pages/context/data';
+
 export default function SendMessage() {
+    const { AddData } = useContext(StateManager);
     const [username, setusername] = useState(null);
 
     const [Plus, setPlus] = useState({
@@ -20,25 +23,33 @@ export default function SendMessage() {
             } else {
                 setusername(name);
             }
-
         })
     }, [username]);
 
     const messageSubmitted = (e) => {
         e.preventDefault();
-        const data = {
-            username,
-            message: e.target.elements.message.value,
-            timeString: new Date().toLocaleTimeString()
+
+
+        const line = e.target.elements.message.value;
+        if (line.trim() !== "" && line.trim() !== null) {
+            const data2 = {
+                name: username,
+                msg: line,
+                time: new Date().toLocaleTimeString()
+            }
+            e.target.elements.message.value = '';
+            AddData(
+                data2
+            );
         }
-        e.target.elements.message.value = '';
-        console.log(data);
+
+
 
     }
 
     return (
         <div className='grid place-items-center'>
-            <form className='mt-10' onSubmit={messageSubmitted}>
+            <form className='mt-10' autoComplete='off' onSubmit={messageSubmitted}>
                 <div className='flex justify-between mx-2 mb-5'>
                     <div>
                         Hi , <span className='font-medium '>{username}</span>
