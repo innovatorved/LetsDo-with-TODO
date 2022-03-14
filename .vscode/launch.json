@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Microsoft Edge and open the Edge DevTools",
+            "request": "launch",
+            "type": "vscode-edge-devtools.debug",
+            "url": "http://localhost:3000"
+        }
+    ]
+}
