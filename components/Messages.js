@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { StateManager } from '../pages/context/data';
+import { StateManager } from '../context/data';
 
 export default function Messages() {
     const { data, changeState } = useContext(StateManager);

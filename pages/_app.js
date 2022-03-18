@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import States from './context/data';
+import States from '../context/data';
 
 function MyApp({ Component, pageProps }) {
   return (

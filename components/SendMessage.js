@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Image from 'next/image';
 
-import { StateManager } from '../pages/context/data';
+import { StateManager } from '../context/data';
 
 export default function SendMessage() {
     const { AddData } = useContext(StateManager);
@@ -69,7 +69,7 @@ export default function SendMessage() {
                     </div>
                     <button type="submit" className='ml-3 mt-1'>
                         <Image
-                            className='hover:opacity-90'
+                            className='hover:rotate-[45deg] hover:opacity-90 '
                             src="/plus.png"
                             width={Plus.height}
                             height={Plus.weigth} />
