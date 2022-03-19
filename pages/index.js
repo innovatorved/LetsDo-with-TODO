@@ -11,17 +11,17 @@ export default function Home() {
         <link rel="icon" href="/logonew.png" />
       </Head>
 
-        <img
-          className="h-auto mx-auto mt-24 cursor-pointer"
-          src="/logo__1_-removebg-preview.png"
-          alt='Contkt Logo'
-          width={200}
-          height={200}
-        />
+      <img
+        className="h-auto mx-auto mt-24 cursor-pointer"
+        src="/logo__1_-removebg-preview.png"
+        alt='Contkt Logo'
+        width={200}
+        height={200}
+      />
 
       <main className=''>
-        <SendMessage/>
-        <Messages/>
+        <SendMessage />
+        <Messages />
       </main>
     </div>
   )

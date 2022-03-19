@@ -10,6 +10,10 @@ const NotesSchema = new Schema({
         type: String,
         required: true
     },
+    flag : {
+        type : Boolean,
+        default: false
+    },
     timestamp : {
         type: Date,
         default: Date.now

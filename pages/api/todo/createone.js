@@ -2,18 +2,18 @@ const { fetchUserDetails } = require("../../../context/detail");
 const notes = require("../../../models/notes");
 
 export default async function handler(req, res) {
-    if (req.method !== 'GET') { return res.status(500).json({ success : false, error: "Internal Server try after some time : method Problem" }); }
-
+    const { msg } = req.body;
     const token = req.headers.authtoken;
+
     const data = await fetchUserDetails(token);
-    if (!data.success){
+    if (!data.success || msg == ""){
         return res.status(401).json({
             success: false,
             message: "Unauthorized"
         });
     }
-
     const userId = data.details.id;
-    const note = await notes.find({user : userId});
-    return res.status(200).json({note});
+    const note = new notes({main : msg , user : userId});
+    const savenote = await note.save();
+    return res.status(200).json({success : true , savenote});
 }

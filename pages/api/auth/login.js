@@ -31,7 +31,7 @@ export default async function handler(req, res) {
         };
         const authtoken = jwt.sign(data, JWT_key);
         success = true;
-        return res.json({ success, authtoken });
+        return res.json({ success, authtoken , userDetails});
 
     } catch (error) {
         success = false;

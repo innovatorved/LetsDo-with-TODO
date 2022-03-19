@@ -3,7 +3,12 @@ import { createContext, useState } from 'react';
 // Createcontext
 const StateManager = createContext();
 
+
 const States = (props) => {
+
+    const [userInfo , setUserInfo] = useState({
+        name : '',
+    });
 
     const list = [];
 
@@ -29,7 +34,7 @@ const States = (props) => {
 
     
     return (
-        <StateManager.Provider value={{data , AddData , changeState}}>
+        <StateManager.Provider value={{data , AddData , changeState , userInfo , setUserInfo}}>
             {props.children}
         </StateManager.Provider>
     )

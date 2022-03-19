@@ -4,8 +4,7 @@ import Image from 'next/image';
 import { StateManager } from '../context/data';
 
 export default function SendMessage() {
-    const { AddData } = useContext(StateManager);
-    const [username, setusername] = useState(null);
+    const { AddData , userInfo} = useContext(StateManager);
 
     const [Plus, setPlus] = useState({
         height: 30,
@@ -13,18 +12,8 @@ export default function SendMessage() {
     });
 
     useEffect(() => {
-        Promise.all([
-            localStorage.getItem('username'),
-        ]).then(([name]) => {
-            if (name === null) {
-                const uname = window.prompt("Enter the name");
-                localStorage.setItem('username', uname);
-                setusername(uname);
-            } else {
-                setusername(name);
-            }
-        })
-    }, [username]);
+        
+    }, []);
 
     const messageSubmitted = (e) => {
         e.preventDefault();
@@ -33,7 +22,7 @@ export default function SendMessage() {
         const line = e.target.elements.message.value;
         if (line.trim() !== "" && line.trim() !== null) {
             const data2 = {
-                name: username,
+                name: userInfo.name,
                 msg: line,
                 time: new Date().toLocaleTimeString()
             }
@@ -52,7 +41,7 @@ export default function SendMessage() {
             <form className='mt-10' autoComplete='off' onSubmit={messageSubmitted}>
                 <div className='flex justify-between mx-2 mb-5'>
                     <div>
-                        Hi , <span className='font-medium '>{username}</span>
+                        Hi , <span className='font-medium text-indigo-700'>{userInfo.name}</span>
                     </div>
                     <div className='text-xs ml-2 cursor-pointer text-orange-500 font-medium hover:text-orange-600' onClick={() => {
                         localStorage.removeItem('username');
