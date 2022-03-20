@@ -8,7 +8,7 @@ exports.fetchUserDetails = async function (token){
     }
     await connectToMongo();
     try {
-        const userDetail = jwt.verify(token , JWT_KEY);
+        const userDetail = await jwt.verify(token , JWT_KEY);
         return ({success : true, details : userDetail.user});
     } catch (error) {
         return ({success : false , details : null});

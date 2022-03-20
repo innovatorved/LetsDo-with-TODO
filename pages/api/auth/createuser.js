@@ -35,7 +35,10 @@ export default async function handler(req, res) {
 
         const data = {
             user: {
-                id: createuser.id
+                id: createuser.id,
+                name : createuser.name,
+                username : createuser.username,
+                date : Date.now(),
             }
         };
 

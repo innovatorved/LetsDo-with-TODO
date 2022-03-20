@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Image from 'next/image';
 
 import { StateManager } from '../context/data';
@@ -10,10 +10,6 @@ export default function SendMessage() {
         height: 30,
         weigth: 30
     });
-
-    useEffect(() => {
-        
-    }, []);
 
     const messageSubmitted = (e) => {
         e.preventDefault();

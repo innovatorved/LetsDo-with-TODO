@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     try {
         await connectToMongo();
         const {email , password} = req.body;
-        const userDetails = await user.findOne({ email });
+        const userDetails = await user.findOne({ email  });
 
         if (!userDetails) {
             success = false;
@@ -26,9 +26,13 @@ export default async function handler(req, res) {
         }
         const data = {
             user: {
-                id: user.id
+                id: userDetails.id,
+                name : userDetails.name,
+                username : userDetails.username,
+                date : Date.now(),
             }
         };
+
         const authtoken = jwt.sign(data, JWT_key);
         success = true;
         return res.json({ success, authtoken , userDetails});
