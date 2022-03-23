@@ -13,7 +13,11 @@ export default async function handler(req, res) {
         });
     }
 
-    const userId = data.details.id;
-    const note = await notes.find({user : userId});
-    return res.status(200).json({note});
+    try {
+        const userId = data.details.id;
+        const note = await notes.find({user : userId} , {user : 0 , __v : 0});
+        return res.status(200).json({success:true , note});
+    } catch (error) {
+        return res.status(400).json({success:false});
+    }
 }

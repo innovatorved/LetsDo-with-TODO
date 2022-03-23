@@ -6,50 +6,51 @@ const StateManager = createContext();
 
 const States = (props) => {
 
+    const host = 'http://localhost:3000';
+
     const [userInfo, setUserInfo] = useState({
         name: '',
-        username:''
+        username: ''
     });
-
-    useEffect(async () => {
-        if (localStorage.getItem('name') === null) {
-            const tok = localStorage.getItem("token");
-            const response = await fetch('http://localhost:3000/api/getUserInfo', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'authtoken': tok
-                }
-            });
-            const data = await response.json();
-            if (data.success) {
-                setUserInfo(data.data);
-                localStorage.setItem('name' , data.data.name);
-                localStorage.setItem('username' , data.data.username);
-            }
-        }
-        else{
-            setUserInfo({
-                name : localStorage.getItem("name"),
-                username : localStorage.getItem("username")
-            })
-        }
-
-    }, [1])
 
 
     const list = [];
 
     const [data, setData] = useState(list);
 
+    const LogOut = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('name');
+        localStorage.removeItem('username');
+        setUserInfo({
+            name: '',
+            username: ''
+        });
+        setData([]);
+    };
+
     const AddData = (note) => {
         const add = {
-            name: note.name,
             msg: note.msg,
             timestamp: note.time,
             state: false
         };
         setData(data => [add, ...data]);
+        fetch(host + "/api/todo/createone", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                authtoken: localStorage.getItem("token"),
+            },
+            body: JSON.stringify(add),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.success) {
+                    console.log(data.success);
+                }
+            })
+            .catch((err) => console.log(err));
     }
 
     const changeState = (index) => {
@@ -62,7 +63,7 @@ const States = (props) => {
 
 
     return (
-        <StateManager.Provider value={{ data, AddData, changeState, userInfo, setUserInfo }}>
+        <StateManager.Provider value={{ host, data, setData , AddData, changeState, LogOut, userInfo, setUserInfo }}>
             {props.children}
         </StateManager.Provider>
     )
