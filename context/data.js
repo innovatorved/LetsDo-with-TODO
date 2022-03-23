@@ -6,7 +6,7 @@ const StateManager = createContext();
 
 const States = (props) => {
 
-    const host = 'http://localhost:3000';
+    const host = process.env.host || 'http://localhost:3000';
 
     const [userInfo, setUserInfo] = useState({
         name: '',
