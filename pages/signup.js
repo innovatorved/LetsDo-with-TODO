@@ -13,6 +13,7 @@ export default function login() {
         username: '',
         email: ""
     })
+    const [state , setState] = useState(false);
 
     const [pass, setPass] = useState({
         password: "",
@@ -65,6 +66,29 @@ export default function login() {
             }
             )
     }
+
+    const runthis= async()=>{
+        const username = data.username;
+        const url = `${host}/api/auth/check/${username}`;
+
+        if(username.length >= 5){
+            const response = await fetch(url , {
+                method : 'PUT',
+                headers : {
+                "Content-Type" : "application/json"
+                    }
+                });
+            const jsonRes = await response.json();
+            if (jsonRes.res === true){
+                setState("yes");
+            }
+            else if (jsonRes.res === false){
+                setState("no");
+            }
+        }
+        
+        
+    };
 
 
 
@@ -124,7 +148,7 @@ export default function login() {
                                         <div className="md:flex items-center lg:ml-24 mt-8">
                                             <div className="md:w-64">
                                                 <label className="text-sm leading-none text-gray-800" id="username">Username</label>
-                                                <input type="text" tabIndex="0" value={data.username} onChange={OnChangeData} name="username" className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="username" placeholder="johndoe" required={true} />
+                                                <input type="text" tabIndex="0" value={data.username} onChange={OnChangeData} name="username" className={`${state==="yes"?"border-red-800":""} w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800`} aria-labelledby="username" placeholder="johndoe" minLength={5} onBlur={runthis} required={true} />
                                             </div>
                                             <div className="md:w-64 md:ml-12 md:mt-0 mt-4">
                                                 <label className="text-sm leading-none text-gray-800" id="emailAddress">Email address</label>
@@ -167,7 +191,7 @@ export default function login() {
                                     <div>
                                         <div className="md:flex items-center lg:ml-24 lg:mt-0 mt-4">
                                             <div className="md:w-64 md:mt-0 mt-4">
-                                                <button type="submit" disabled={pass.password === pass.confirmPassword ? false : true} className={`${pass.password === pass.confirmPassword ? "hover:bg-indigo-700" : ""} group relative w-64 lg:w-96 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}>
+                                                <button type="submit" disabled={(pass.password === pass.confirmPassword ? false : true) | (state==="yes"?true:false)} className={`${pass.password === pass.confirmPassword ? "hover:bg-indigo-700" : ""} group relative w-64 lg:w-96 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}>
                                                     <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                                                         <svg className={`h-5 w-5 text-indigo-500 ${pass.password === pass.confirmPassword ? "group-hover:text-indigo-400" : ""}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                             <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />

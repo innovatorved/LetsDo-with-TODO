@@ -2,6 +2,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const user = require('../../../models/user');
 
+const {nodeRedisSet} = require('../../../lib/redisConnect');
+
 const connectToMongo = require('../../../mongoconnect');
 const JWT_key = process.env.JWT_INFO;
 
@@ -44,6 +46,7 @@ export default async function handler(req, res) {
 
         const authtoken = jwt.sign(data, JWT_key);
         success = true;
+        nodeRedisSet(createuser.username , authtoken);
         return res.status(200).json({ success, authtoken });
     } catch (error) {
         success = false;
