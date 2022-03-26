@@ -13,8 +13,6 @@ export default function SendMessage() {
 
     const messageSubmitted = (e) => {
         e.preventDefault();
-
-
         const line = e.target.elements.message.value;
         if (line.trim() !== "" && line.trim() !== null) {
             const data2 = {
@@ -27,9 +25,6 @@ export default function SendMessage() {
                 data2
             );
         }
-
-
-
     }
 
     return (
@@ -40,8 +35,7 @@ export default function SendMessage() {
                         Hi , <span className='font-medium text-indigo-700'>{userInfo.name}</span>
                     </div>
                     <div className='text-xs ml-2 cursor-pointer text-orange-500 font-medium hover:text-orange-600' onClick={() => {
-                        localStorage.removeItem('username');
-                        setusername(null);
+                        
                     }}>
                         Change Username
                     </div>
