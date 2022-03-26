@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     if (!localStorage.getItem('token')) {
       LogOut();
-      Router.push('/login');
+      Router.push('/Login');
     }
   })
 
@@ -79,7 +79,7 @@ export default function Home() {
       <Head>
         <title>ToDo</title>
         <meta name="description" content="Let's Do : with ToDo" />
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <link rel="icon" href="/logonew.png" />
       </Head>
 

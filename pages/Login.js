@@ -4,7 +4,7 @@ import { StateManager } from '../context/data';
 import Head from 'next/head';
 
 
-export default function login() {
+export default function Login() {
     const { host } = useContext(StateManager);
     useEffect(() => {
         if (localStorage.getItem('token')) {

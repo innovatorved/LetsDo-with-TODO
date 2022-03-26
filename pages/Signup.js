@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 
-export default function login() {
+export default function Signup() {
     const { host } = useContext(StateManager);
     const [data, setData] = useState({
         firstname: '',
@@ -58,7 +58,7 @@ export default function login() {
             .then(newUser => {
                 if (newUser.success) {
                     localStorage.setItem('token', newUser.authtoken);
-                    Router.push('/login');
+                    Router.push('/Login');
                 }
                 else {
                     alert(newUser.error);
@@ -179,7 +179,7 @@ export default function login() {
                                 </div>
                                 <div className="mt-16 lg:flex justify-between border-b border-gray-200 pb-16 mb-4">
                                     <div className="w-80">
-                                        <Link href="/login">
+                                        <Link href="/Login" passHref>
                                             <button type="button" className="group relative w-64 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                                                     &gt;

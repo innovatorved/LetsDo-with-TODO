@@ -37,7 +37,7 @@ export default function SendMessage() {
                     </div>
                     <div className='text-xs ml-2 cursor-pointer text-orange-500 font-medium hover:text-orange-600 pr-4' title='Logout'  onClick={()=>{
                         LogOut();
-                        Router.push('/login');
+                        Router.push('/Login');
                     }}>
                         <Image src='/log.svg' width={Plus.weigth} height={Plus.height} />
                     </div>
