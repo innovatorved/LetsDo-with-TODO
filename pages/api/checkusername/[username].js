@@ -1,5 +1,5 @@
 
-const {nodeRedisGet} = require('../../lib/redisConnect')
+const {nodeRedisGet} = require('../../../lib/redisConnect')
 
 export default async function handler(req, res) {
     

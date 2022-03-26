@@ -15,7 +15,7 @@ export default function Home() {
     }
   })
 
-  useEffect(() => {
+  useEffect(async() => {
     if (data.length === 0) {
       fetch(host + "/api/todo/fetchall", {
         method: "GET",
@@ -45,7 +45,7 @@ export default function Home() {
           console.log(err);
         });
     }
-  }, [1]);
+  }, []);
 
 
 
@@ -72,7 +72,7 @@ export default function Home() {
         username: localStorage.getItem("username")
       })
     }
-  }, [1])
+  }, [])
 
   return (
     <div>

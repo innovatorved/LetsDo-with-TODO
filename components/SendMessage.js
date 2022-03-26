@@ -39,7 +39,7 @@ export default function SendMessage() {
                         LogOut();
                         Router.push('/Login');
                     }}>
-                        <Image src='/log.svg' width={Plus.weigth} height={Plus.height} />
+                        <Image src='/log.svg' alt="logo svg" width={Plus.weigth} height={Plus.height} />
                     </div>
                 </div>
                 <div className='flex'>
@@ -51,6 +51,7 @@ export default function SendMessage() {
                     <button type="submit" className='ml-3 mt-1'>
                         <Image
                             className='hover:rotate-[45deg] hover:opacity-90 '
+                            alt='Submit send'
                             src="/plus.png"
                             width={Plus.height}
                             height={Plus.weigth} />
