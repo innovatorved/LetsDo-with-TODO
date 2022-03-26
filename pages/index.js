@@ -6,7 +6,7 @@ import Router from 'next/router';
 import { StateManager } from '../context/data';
 
 export default function Home() {
-  const { setUserInfo, LogOut, host , data , setData} = useContext(StateManager);
+  const { setUserInfo, LogOut, host, data, setData } = useContext(StateManager);
 
   useEffect(() => {
     if (!localStorage.getItem('token')) {
@@ -17,7 +17,6 @@ export default function Home() {
 
   useEffect(() => {
     if (data.length === 0) {
-      console.log("yes")
       fetch(host + "/api/todo/fetchall", {
         method: "GET",
         headers: {
@@ -46,7 +45,7 @@ export default function Home() {
           console.log(err);
         });
     }
-  },[1]);
+  }, [1]);
 
 
 
@@ -80,8 +79,11 @@ export default function Home() {
       <Head>
         <title>ToDo</title>
         <meta name="description" content="Let's Do : with ToDo" />
+        <meta charset="utf-8" />
         <link rel="icon" href="/logonew.png" />
       </Head>
+
+      
 
       <main className=''>
         <img

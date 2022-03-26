@@ -2,9 +2,10 @@ import React, { useState, useContext } from 'react';
 import Image from 'next/image';
 
 import { StateManager } from '../context/data';
+import Router from 'next/router';
 
 export default function SendMessage() {
-    const { AddData , userInfo} = useContext(StateManager);
+    const { AddData , userInfo , LogOut} = useContext(StateManager);
 
     const [Plus, setPlus] = useState({
         height: 30,
@@ -34,10 +35,11 @@ export default function SendMessage() {
                     <div>
                         Hi , <span className='font-medium text-indigo-700'>{userInfo.name}</span>
                     </div>
-                    <div className='text-xs ml-2 cursor-pointer text-orange-500 font-medium hover:text-orange-600' onClick={() => {
-                        
+                    <div className='text-xs ml-2 cursor-pointer text-orange-500 font-medium hover:text-orange-600 pr-4' title='Logout'  onClick={()=>{
+                        LogOut();
+                        Router.push('/login');
                     }}>
-                        Change Username
+                        <Image src='/log.svg' width={Plus.weigth} height={Plus.height} />
                     </div>
                 </div>
                 <div className='flex'>
