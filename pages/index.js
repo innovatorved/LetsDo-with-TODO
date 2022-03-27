@@ -87,7 +87,7 @@ export default function Home() {
 
       <main className=''>
         <img
-          className="h-auto mx-auto mt-24 cursor-pointer"
+          className="h-auto mx-auto md:mt-24 mt-14 cursor-pointer"
           src="/logo__1_-removebg-preview.png"
           alt='Contkt Logo'
           width={200}
