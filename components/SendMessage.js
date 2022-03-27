@@ -8,8 +8,8 @@ export default function SendMessage() {
     const { AddData , userInfo , LogOut} = useContext(StateManager);
 
     const [Plus, setPlus] = useState({
-        height: 30,
-        weigth: 30
+        height: 27,
+        weigth: 27
     });
 
     const messageSubmitted = (e) => {
@@ -45,7 +45,7 @@ export default function SendMessage() {
                 <div className='flex'>
                     <div>
                         <label htmlFor="message">
-                            <input type="text" name="message" className='inline outline-none border-[1px] w-96 h-10 rounded-md p-2 border-gray-400 focus:border-gray-600' />
+                            <input type="text" name="message" className='inline outline-none border-[1px] w-72 md:w-96 h-10 rounded-md p-2 border-gray-400 focus:border-gray-600' />
                         </label>
                     </div>
                     <button type="submit" className='ml-3 mt-1'>
