@@ -57,6 +57,7 @@ const States = (props) => {
         const exactIndex = index;
         const newArray = [...data];
         let ele = newArray[exactIndex]
+        localStorage.setItem(ele.id, !ele.state);
         newArray[exactIndex] = { ...ele, state: !ele.state }
         setData(newArray);
     }

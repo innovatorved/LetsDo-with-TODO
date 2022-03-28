@@ -29,10 +29,12 @@ export default function Home() {
           const notes = [];
           if (dataNotes.success) {
             dataNotes.note.map((note) => {
+              const state = localStorage.getItem(note._id);
               const add = {
+                id : note._id,
                 msg: note.main,
                 timestamp: note.timestamp,
-                state: note.flag
+                state: state===null?false:state==="true"?true:false
               };
               notes.push(add);
             });
