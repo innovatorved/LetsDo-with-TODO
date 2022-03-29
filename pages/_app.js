@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '../styles/globalsCSS.css'
 import States from '../context/data';
 
 function MyApp({ Component, pageProps }) {
