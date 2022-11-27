@@ -38,7 +38,7 @@ To deploy this project run
 
 ## Screenshots
 
-![todoapp](https://raw.githubusercontent.com/innovatorved/LetsDo-with-TODO/images/image1.png)
+![todoapp](https://raw.githubusercontent.com/innovatorved/LetsDo-with-TODO/main/images/image1.png)
 
 
 ## License
