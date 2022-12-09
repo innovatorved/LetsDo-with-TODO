@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/innovatorved/LetsDo-with-TODO/main/public/logo__1_-removebg-preview.png" alt="todologo" width="150px"/>
+    <img src="https://bbpuefvzkslxkhvduevs.supabase.co/storage/v1/object/public/images/todo-logo-removebg.png" alt="todologo" width="150px"/>
 </p>
 
 # LetsDo-with-TODO
@@ -38,7 +38,7 @@ To deploy this project run
 
 ## Screenshots
 
-![todoapp](https://raw.githubusercontent.com/innovatorved/LetsDo-with-TODO/main/images/image1.png)
+![todoapp](https://bbpuefvzkslxkhvduevs.supabase.co/storage/v1/object/public/images/image1.png?t=2022-12-09T13%3A43%3A16.965Z)
 
 
 ## License
