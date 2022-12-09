@@ -4,11 +4,11 @@
 
 # LetsDo-with-TODO
 
-Notebook is a note-taking service included as part of the free, web-based Notebook
+A todo application built with Next.js and MongoDB provides a simple and efficient way to manage tasks and stay organized.
 
 ## Demo
 
- lets-do-with-todo.vercel.app/Signup 
+![lets-do-with-todo.vercel.app/Signup](lets-do-with-todo.vercel.app/Signup)
 
 ## Deployment
 
