@@ -38,7 +38,7 @@ To deploy this project run
 
 ## Screenshots
 
-![todoapp](https://bbpuefvzkslxkhvduevs.supabase.co/storage/v1/object/public/images/image1.png?t=2022-12-09T13%3A43%3A16.965Z)
+![todoapp](https://bbpuefvzkslxkhvduevs.supabase.co/storage/v1/object/public/images/todo-image1.png)
 
 
 ## License
